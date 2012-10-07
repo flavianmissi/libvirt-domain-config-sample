@@ -1,0 +1,33 @@
+<domain type='kvmm'>
+    <name>demodom</name>
+    <uuid>4dea22b31d52d8f32516782e98ab3fa0</uuid>
+    <memory>524288</memory>
+    <currentMemory>524288</currentMemory>
+    <vcpu>1</vcpu>
+    <os>
+        <type arch='x86_64'>exe</type>
+        <init>/bin/systemd?</init>
+        <initarg>--unit</initarg>
+        <initarg>emergency.service</initarg>
+    </os>
+    <features>
+        <acpi/>
+    </features>
+    <clock offset='utc'/>
+    <on_poweroff>destroy</on_poweroff>
+    <on_reboot>restart</on_reboot>
+    <on_crash>destroy</on_crash>
+    <devices>
+        <emulator>/usr/bin/kvm</emulator>
+        <disk type='file' device='disk'>
+            <source file='/var/lib/fakevirt/instances/i-A9B8C7D6/disk'/>
+            <target dev='sda' bus='scsi'/>
+        </disk>
+        <interface type='bridge'>
+            <mac address='a0:1b:c2:3d:4e:f5'/>
+            <source bridge='fakebr2000'/>
+            <target dev='vnet1'/>
+            <model type='e1000'/>
+        </interface>
+    </devices>
+</domain>
