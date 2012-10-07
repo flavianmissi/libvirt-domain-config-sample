@@ -1,0 +1,4 @@
+XML domain configuration samples for libvirt
+============================================
+
+For reference, check http://libvirt.org/formatdomain.html
