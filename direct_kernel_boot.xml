@@ -22,11 +22,12 @@
             <source file='/var/lib/vms_disks/demodom/'/>
             <target dev='sda' bus='scsi'/>
         </disk>
-        <interface type='bridge'>
-            <mac address='a0:1b:c2:3d:4e:f5'/>
-            <source bridge='fakebr2000'/>
-            <target dev='vnet1'/>
-            <model type='e1000'/>
+        <disk type='file' device='disk'>
+            <source file='/home/flavia/images/precise-server-cloudimg-amd64.img'/>
+            <target dev='hda'/>
+        </disk>
+        <interface type='network'>
+            <source network='default' />
         </interface>
     </devices>
 </domain>
