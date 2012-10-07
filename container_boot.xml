@@ -1,14 +1,12 @@
-<domain type='kvm'>
-    <name>demodom</name>
+<domain type='lxc'>
+    <name>democontainer</name>
     <uuid>4dea22b31d52d8f32516782e98ab3fa0</uuid>
     <memory>524288</memory>
     <currentMemory>524288</currentMemory>
     <vcpu>1</vcpu>
     <os>
         <type arch='x86_64'>exe</type>
-        <init>/bin/systemd?</init>
-        <initarg>--unit</initarg>
-        <initarg>emergency.service</initarg>
+        <init>/bin/sh</init>
     </os>
     <features>
         <acpi/>
@@ -18,17 +16,10 @@
     <on_reboot>restart</on_reboot>
     <on_crash>destroy</on_crash>
     <devices>
-        <emulator>/usr/bin/kvm</emulator>
-        <disk type='dir' device='disk'>
-            <source file='/var/lib/vms_disks/demodom/'/>
-            <target dev='sda' bus='scsi'/>
-        </disk>
-        <disk type='file' device='disk'>
-            <source file='/home/flavia/images/precise-server-cloudimg-amd64.img'/>
-            <target dev='hda'/>
-        </disk>
+        <emulator>/usr/lib/libvirt/libvirt_lxc</emulator>
         <interface type='network'>
             <source network='default' />
         </interface>
+        <console type="pty" />
     </devices>
 </domain>
