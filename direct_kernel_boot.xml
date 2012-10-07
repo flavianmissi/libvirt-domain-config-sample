@@ -5,10 +5,9 @@
     <currentMemory>524288</currentMemory>
     <vcpu>1</vcpu>
     <os>
-        <type>kvm</type>
-        <loader></loader>
-        <kernel></kernel>
-        <initrd></initrd>
+        <type>hvm</type>
+        <loader>/home/flavia/images/precise-server-cloudimg-amd64-loader</loader>
+        <kernel>/home/flavia/images/precise-server-cloudimg-amd64-vmlinuz-virtual</kernel>
     </os>
     <features>
         <acpi/>
@@ -19,8 +18,8 @@
     <on_crash>destroy</on_crash>
     <devices>
         <emulator>/usr/bin/kvm</emulator>
-        <disk type='file' device='disk'>
-            <source file='/var/lib/fakevirt/instances/i-A9B8C7D6/disk'/>
+        <disk type='dir' device='disk'>
+            <source file='/var/lib/vms_disks/demodom/'/>
             <target dev='sda' bus='scsi'/>
         </disk>
         <interface type='bridge'>
